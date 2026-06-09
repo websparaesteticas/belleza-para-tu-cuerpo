@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Belleza Para Tu Cuerpo — Centro de Estética Integral | General Paz · Córdoba</title>
+  <meta name="description" content="Centro de estética integral en el barrio General Paz, Córdoba. Faciales, depilación, tratamientos corporales y más. 34 reseñas, 4.9 estrellas." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --cream:     #FBF6F0;
+      --sand:      #F2E8DC;
+      --blush:     #EDCFBE;
+      --coral:     #C97B60;
+      --terracota: #A55C44;
+      --deep:      #2C1C15;
+      --mist:      #E8DDD5;
+      --gold:      #C4964A;
+      --white:     #FFFFFF;
+      --radius:    12px;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Georgia', serif; background: var(--cream); color: var(--deep); line-height: 1.7; }
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(251, 246, 240, 0.95);
+      backdrop-filter: blur(8px);
+      z-index: 100; padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px; border-bottom: 1px solid var(--sand);
+      transition: box-shadow 0.3s;
+    }
+    .nav-logo {
+      font-size: 1rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; color: var(--terracota);
+    }
+    .nav-logo span { color: var(--coral); font-style: italic; font-size: 1.1em; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-family: 'Arial', sans-serif; font-size: 0.82rem;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--deep); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--coral); }
+    .nav-cta {
+      background: var(--coral); color: var(--white) !important;
+      padding: 0.5rem 1.2rem; border-radius: 40px;
+      font-size: 0.8rem !important; transition: background 0.2s !important;
+    }
+    .nav-cta:hover { background: var(--terracota) !important; }
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: var(--deep); border-radius: 2px; }
+
+    /* ── Hero ── */
+    .hero {
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      text-align: center; padding: 6rem 2rem 4rem;
+      background:
+        linear-gradient(160deg, rgba(251,246,240,0.90) 0%, rgba(201,123,96,0.18) 100%),
+        url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=1600&q=80') center/cover no-repeat;
+    }
+    .hero-tag {
+      font-family: 'Arial', sans-serif; font-size: 0.73rem;
+      letter-spacing: 0.35em; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 700; color: var(--terracota);
+      line-height: 1.1; margin-bottom: 0.5rem; letter-spacing: 0.03em;
+    }
+    .hero h1 em { font-style: italic; color: var(--coral); }
+    .hero-subtitle {
+      font-size: 1.1rem; color: var(--deep); opacity: 0.65;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      font-family: 'Arial', sans-serif; margin-bottom: 1.4rem;
+    }
+    .hero-sub {
+      font-size: 1.1rem; color: var(--deep); opacity: 0.72;
+      max-width: 500px; margin: 0 auto 2.5rem;
+    }
+    .btn {
+      display: inline-block; padding: 0.9rem 2.4rem;
+      border-radius: 40px; font-family: 'Arial', sans-serif;
+      font-size: 0.84rem; letter-spacing: 0.14em;
+      text-transform: uppercase; transition: all 0.2s; cursor: pointer;
+    }
+    .btn-primary { background: var(--coral); color: var(--white); }
+    .btn-primary:hover { background: var(--terracota); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(201,123,96,0.35); }
+    .btn-outline { border: 1.5px solid var(--coral); color: var(--coral); margin-left: 1rem; }
+    .btn-outline:hover { background: var(--coral); color: var(--white); transform: translateY(-2px); }
+    .btn-gold { background: var(--gold); color: var(--white); }
+    .btn-gold:hover { background: var(--terracota); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(196,150,74,0.35); }
+    .hero-badges {
+      margin-top: 2.5rem;
+      display: flex; align-items: center; justify-content: center;
+      gap: 1rem; flex-wrap: wrap;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      background: var(--white); padding: 0.6rem 1.2rem;
+      border-radius: 40px; font-family: 'Arial', sans-serif;
+      font-size: 0.8rem; color: var(--deep);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+
+    /* ── Secciones base ── */
+    section { padding: 6rem 2rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    .section-label {
+      font-family: 'Arial', sans-serif; font-size: 0.72rem;
+      letter-spacing: 0.3em; text-transform: uppercase;
+      color: var(--coral); margin-bottom: 0.8rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      color: var(--deep); margin-bottom: 1.2rem; line-height: 1.2;
+    }
+    .section-intro {
+      font-size: 1.05rem; color: var(--deep); opacity: 0.7;
+      max-width: 560px; margin-bottom: 3.5rem;
+    }
+
+    /* ── Servicios ── */
+    #servicios { background: var(--white); }
+    .services-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+    .service-card {
+      background: var(--cream); border-radius: var(--radius);
+      padding: 2rem 1.8rem; border: 1px solid var(--sand);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative; overflow: hidden;
+    }
+    .service-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0;
+      width: 100%; height: 3px; background: var(--blush);
+      transition: background 0.2s;
+    }
+    .service-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(201,123,96,0.12); }
+    .service-card:hover::after { background: var(--coral); }
+    .service-icon { font-size: 2rem; margin-bottom: 1rem; }
+    .service-card h3 { font-size: 1.1rem; color: var(--terracota); margin-bottom: 0.5rem; }
+    .service-card p { font-size: 0.9rem; opacity: 0.72; }
+
+    /* ── Nosotros ── */
+    #nosotros { background: var(--sand); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 4.5rem; align-items: center;
+    }
+    .about-img {
+      border-radius: var(--radius); overflow: hidden; aspect-ratio: 4/5;
+    }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .about-text p { margin-bottom: 1rem; opacity: 0.8; }
+    .about-highlight {
+      background: var(--blush); border-left: 3px solid var(--coral);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.2rem 1.5rem; margin: 1.5rem 0;
+      font-style: italic; font-size: 1.05rem; opacity: 0.85;
+    }
+    .about-stat { display: flex; gap: 2.5rem; margin-top: 2rem; }
+    .stat-box { text-align: left; }
+    .stat-num { font-size: 2.4rem; font-weight: 700; color: var(--coral); line-height: 1; }
+    .stat-label { font-family: 'Arial', sans-serif; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.55; }
+
+    /* ── Reseñas ── */
+    #reseñas { background: var(--terracota); color: var(--white); }
+    #reseñas .section-title { color: var(--white); }
+    #reseñas .section-intro { color: var(--mist); opacity: 1; }
+    #reseñas .section-label { color: var(--gold); }
+    .reviews-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem;
+    }
+    .review-card {
+      background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.14);
+      border-radius: var(--radius); padding: 1.8rem; transition: background 0.2s;
+    }
+    .review-card:hover { background: rgba(255,255,255,0.13); }
+    .review-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; margin-bottom: 1rem; }
+    .review-text { font-size: 0.92rem; opacity: 0.82; margin-bottom: 1.2rem; font-style: italic; line-height: 1.65; }
+    .review-author { font-family: 'Arial', sans-serif; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.45; }
+    .reviews-total { text-align: center; margin-bottom: 3rem; }
+    .reviews-total .big-num { font-size: 5rem; font-weight: 700; color: var(--blush); line-height: 1; }
+    .reviews-total p { opacity: 0.55; font-size: 0.85rem; letter-spacing: 0.1em; text-transform: uppercase; font-family: 'Arial', sans-serif; }
+    .reviews-cta { text-align: center; margin-top: 3rem; }
+    .reviews-cta p { opacity: 0.5; margin-bottom: 1rem; font-family: 'Arial', sans-serif; font-size: 0.85rem; }
+
+    /* ── Contacto ── */
+    #contacto { background: var(--cream); }
+    .contact-wrap { max-width: 580px; }
+    .contact-info-text { opacity: 0.75; margin-bottom: 2.5rem; }
+    .contact-item { display: flex; align-items: flex-start; gap: 1rem; margin-bottom: 1.6rem; }
+    .contact-icon { font-size: 1.3rem; margin-top: 2px; }
+    .contact-item strong {
+      display: block; font-size: 0.75rem; font-family: 'Arial', sans-serif;
+      letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.5; margin-bottom: 3px;
+    }
+    .contact-item span { font-size: 0.95rem; }
+    .contact-item a { color: var(--coral); }
+    .contact-item a:hover { color: var(--terracota); }
+    .contact-ctas { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; }
+
+    /* ── WhatsApp float ── */
+    .wa-float {
+      position: fixed; bottom: 1.8rem; right: 1.8rem;
+      background: #25D366; color: white;
+      width: 60px; height: 60px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.7rem; z-index: 200; cursor: pointer;
+      text-decoration: none; transition: transform 0.2s;
+    }
+
+    /* ── Footer ── */
+    footer { background: var(--deep); color: var(--mist); padding: 3rem 2rem; text-align: center; }
+    .footer-logo { font-size: 1.1rem; font-weight: 700; letter-spacing: 0.12em; color: var(--coral); margin-bottom: 0.4rem; text-transform: uppercase; }
+    footer p { font-family: 'Arial', sans-serif; font-size: 0.78rem; opacity: 0.4; margin-top: 0.3rem; }
+    .footer-divider { width: 40px; height: 1px; background: var(--coral); margin: 1rem auto; opacity: 0.4; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .nav-links.open {
+        display: flex; flex-direction: column;
+        position: absolute; top: 64px; left: 0; width: 100%;
+        background: var(--cream); padding: 1.5rem 2rem;
+        border-bottom: 1px solid var(--sand); gap: 1.2rem;
+      }
+      .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .about-img { aspect-ratio: 16/9; }
+      .btn-outline { margin-left: 0; margin-top: 0.8rem; }
+    }
+
+    /* ── Scroll Reveal ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── Nav scrolled ── */
+    nav.scrolled { box-shadow: 0 4px 24px rgba(0,0,0,0.12); }
+
+    /* ── WhatsApp pulse ── */
+    @keyframes wa-pulse {
+      0%, 100% { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 0 rgba(37,211,102,0.4); }
+      60%       { box-shadow: 0 4px 20px rgba(37,211,102,0.45), 0 0 0 13px rgba(37,211,102,0); }
+    }
+    .wa-float { animation: wa-pulse 2.8s ease infinite; }
+    .wa-float:hover { animation: none; transform: scale(1.1); }
+
+    /* ── Mapa ── */
+    .map-section { padding: 0; }
+    .map-section iframe { width: 100%; height: 380px; border: 0; display: block; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">Belleza <span>Para Tu Cuerpo</span></div>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#reseñas">Reseñas</a></li>
+    <li><a href="#contacto" class="nav-cta">Reservar turno</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div>
+    <p class="hero-tag">✦ General Paz · Córdoba ✦</p>
+    <h1>Belleza<br><em>Para Tu Cuerpo</em></h1>
+    <p class="hero-subtitle">Centro de Estética Integral</p>
+    <p class="hero-sub">Un espacio dedicado íntegramente a tu bienestar. Tratamientos profesionales, atención personalizada y resultados que se notan.</p>
+    <div>
+      <a href="https://wa.me/5493516764227?text=Hola!%20Vi%20su%20web%20y%20quisiera%20consultar%20por%20un%20turno" class="btn btn-primary">Reservar turno</a>
+      <a href="#servicios" class="btn btn-outline">Ver servicios</a>
+    </div>
+    <div class="hero-badges">
+      <span class="hero-badge"><span class="stars">★★★★★</span> 4.9 en Google</span>
+      <span class="hero-badge">🌿 34 reseñas verificadas</span>
+      <span class="hero-badge">📍 Gral. Paz 1428</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios">
+  <div class="container">
+    <p class="section-label reveal">Lo que hacemos</p>
+    <h2 class="section-title reveal">Tratamientos para cada parte de vos</h2>
+    <p class="section-intro reveal">Estética integral que combina técnica, productos de calidad y el cuidado que merecés.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3>Faciales y Limpiezas</h3>
+        <p>Limpieza profunda, hidratación intensiva, tratamiento de manchas y poros. Piel luminosa desde la primera sesión.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3>Depilación</h3>
+        <p>Cera caliente y tibia, hilo y otros métodos de precisión. Técnica suave que cuida tu piel.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💆</div>
+        <h3>Tratamientos Corporales</h3>
+        <p>Reductores, drenaje linfático, exfoliaciones e hidratación corporal. Tu cuerpo en las mejores manos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">💅</div>
+        <h3>Manicura y Pedicura</h3>
+        <p>Esmaltado semipermanente, kapping, nail art y cuidado de cutículas. Manos y pies perfectos.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👁️</div>
+        <h3>Cejas y Pestañas</h3>
+        <p>Diseño y perfilado de cejas, lifting y tinción de pestañas. Mirada definida sin esfuerzo diario.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌸</div>
+        <h3>Masajes Relajantes</h3>
+        <p>Masajes descontracturantes y relajantes para liberar tensiones y renovar energía.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOSOTROS -->
+<section id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img reveal">
+        <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80" alt="Interior de Belleza Para Tu Cuerpo" loading="lazy" />
+      </div>
+      <div class="about-text reveal">
+        <p class="section-label">Sobre nosotras</p>
+        <h2 class="section-title">Tu bienestar, nuestra razón de ser</h2>
+        <p>En <strong>Belleza Para Tu Cuerpo</strong> creemos que cuidarse es un derecho. Trabajamos con técnicas actualizadas y productos de primera calidad para ofrecerte resultados reales.</p>
+        <div class="about-highlight">
+          "Cada cliente merece atención personalizada. No hay rutinas genéricas — diseñamos el tratamiento según tus necesidades."
+        </div>
+        <p>Estamos en el barrio General Paz, un espacio íntimo y acogedor donde vas a sentirte cómoda desde el primer momento.</p>
+        <div class="about-stat">
+          <div class="stat-box">
+            <div class="stat-num">4.9</div>
+            <div class="stat-label">Estrellas en Google</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">34</div>
+            <div class="stat-label">Reseñas verificadas</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-num">100</div>
+            <div class="stat-label">% atención personal</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEÑAS -->
+<section id="reseñas">
+  <div class="container">
+    <p class="section-label reveal">Lo que dicen</p>
+    <h2 class="section-title reveal">Clientas reales, resultados reales</h2>
+    <div class="reviews-total reveal">
+      <div class="big-num">4.9</div>
+      <p>★★★★★ · 34 reseñas en Google Maps</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Un lugar increíble, la atención es impecable. Me encanta cómo quedan mis cejas siempre, y el ambiente es muy cálido."</p>
+        <p class="review-author">— Valentina R.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"La limpieza de cutis fue espectacular, noté la diferencia en la piel desde el mismo día. Muy recomendable."</p>
+        <p class="review-author">— Luciana M.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Profesionalismo y calidez en cada visita. Me atendieron perfectamente, el lugar es cómodo y muy prolijo."</p>
+        <p class="review-author">— Carolina F.</p>
+      </div>
+    </div>
+    <div class="reviews-cta reveal">
+      <p>¿Ya fuiste? Compartí tu experiencia</p>
+      <a href="https://www.google.com/maps/place/Belleza+Para+Tu+Cuerpo/@-31.400881,-64.180194,17z" target="_blank" rel="noopener" class="btn btn-gold">Dejar mi reseña en Google</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="container">
+    <div class="contact-wrap">
+      <p class="section-label reveal">Encontranos</p>
+      <h2 class="section-title reveal">Reservá tu turno hoy</h2>
+      <p class="contact-info-text section-intro reveal">Escribinos por WhatsApp o llamanos. Atendemos con turnos para brindarte la mejor experiencia.</p>
+      <div class="contact-item reveal">
+        <span class="contact-icon">📍</span>
+        <div>
+          <strong>Dirección</strong>
+          <span>Gral. Paz 1428, Córdoba Capital</span>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <span class="contact-icon">📱</span>
+        <div>
+          <strong>Teléfono / WhatsApp</strong>
+          <span><a href="tel:+5493516764227">0351 676-4227</a></span>
+        </div>
+      </div>
+      <div class="contact-item reveal">
+        <span class="contact-icon">🗺️</span>
+        <div>
+          <strong>Barrio</strong>
+          <span>General Paz · Córdoba Capital</span>
+        </div>
+      </div>
+      <div class="contact-ctas">
+        <a href="https://wa.me/5493516764227?text=Hola!%20Quisiera%20reservar%20un%20turno" class="btn btn-primary">💬 WhatsApp</a>
+        <a href="tel:+5493516764227" class="btn btn-outline">📞 Llamar</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA -->
+<section class="map-section">
+  <iframe
+    src="https://maps.google.com/maps?q=Gral.+Paz+1428+C%C3%B3rdoba+Argentina&output=embed&z=16"
+    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+    title="Ubicación Belleza Para Tu Cuerpo"></iframe>
+</section>
+
+<footer>
+  <div class="footer-logo">Belleza Para Tu Cuerpo</div>
+  <div class="footer-divider"></div>
+  <p>Centro de Estética Integral · Gral. Paz 1428, Córdoba</p>
+  <p style="margin-top:0.5rem;">© 2025 · Todos los derechos reservados</p>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5493516764227?text=Hola!%20Vi%20su%20web%20y%20quisiera%20consultar%20por%20un%20turno" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="white">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<script>
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  const _nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => _nav.classList.toggle('scrolled', window.scrollY > 50), { passive: true });
+
+  const _obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); _obs.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.service-card, .review-card, .about-text, .about-img, .contact-item, .stat-box, .section-title, .section-intro, .hero-badge').forEach((el, i) => {
+    el.classList.add('reveal');
+    el.style.transitionDelay = (i % 3) * 0.08 + 's';
+    _obs.observe(el);
+  });
+
+  function _count(el) {
+    const txt = el.textContent.trim();
+    const num = parseFloat(txt);
+    if (!num) return;
+    const suf = txt.replace(/[\d.]/g, '');
+    const isF = txt.includes('.');
+    let cur = 0;
+    const t = setInterval(() => {
+      cur = Math.min(cur + num / 60, num);
+      el.textContent = (isF ? cur.toFixed(1) : Math.floor(cur)) + suf;
+      if (cur >= num) clearInterval(t);
+    }, 25);
+  }
+  const _cobs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting && !e.target._d) { e.target._d = true; _count(e.target); } });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.stat-num').forEach(el => _cobs.observe(el));
+</script>
+</body>
+</html>
